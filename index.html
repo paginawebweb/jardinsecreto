@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardín Secreto | Florería Artesanal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        oliva: {
+                            50: '#F2F5F3',
+                            100: '#E2E8E4',
+                            600: '#6B7D70',
+                            700: '#55645A',
+                            800: '#4A5D4E',
+                            900: '#38463B'
+                        },
+                        crema: {
+                            50: '#FAF8F5',
+                            100: '#F5F2EB',
+                            200: '#EBE6D8',
+                            300: '#DDD5C2'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F2EB;
+            color: #38463B;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #EBE6D8;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #6B7D70;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-crema-100 text-oliva-900 antialiased selection:bg-oliva-600 selection:text-white">
+
+    <header class="sticky top-0 z-40 bg-crema-100/90 backdrop-blur-md border-b border-crema-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <i class="fa-solid fa-seedling text-2xl text-oliva-800"></i>
+                <span class="font-serif text-2xl font-bold tracking-wider text-oliva-900">JARDÍN SECRETO</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm tracking-wide">
+                <a href="#inicio" class="text-oliva-800 hover:text-oliva-600 transition-colors">Inicio</a>
+                <a href="#catalogo" class="text-oliva-800 hover:text-oliva-600 transition-colors">Catálogo (20+)</a>
+                <a href="#armatoramo" class="text-oliva-800 hover:text-oliva-600 transition-colors font-semibold text-oliva-700 bg-crema-200 px-3 py-1.5 rounded-full">Arma tu Ramo</a>
+                <a href="#nosotros" class="text-oliva-800 hover:text-oliva-600 transition-colors">Nosotros</a>
+                <a href="#contacto" class="text-oliva-800 hover:text-oliva-600 transition-colors">Contacto</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-oliva-800 text-crema-100 hover:bg-oliva-700 transition-all shadow-md focus:outline-none">
+                    <i class="fa-solid fa-shopping-bag text-lg"></i>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-amber-700 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-oliva-800 hover:text-oliva-600 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-crema-100 border-b border-crema-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block text-oliva-800 font-medium py-1">Inicio</a>
+            <a href="#catalogo" onclick="toggleMobileMenu()" class="block text-oliva-800 font-medium py-1">Catálogo</a>
+            <a href="#armatoramo" onclick="toggleMobileMenu()" class="block text-oliva-800 font-medium py-1">Arma tu Ramo</a>
+            <a href="#nosotros" onclick="toggleMobileMenu()" class="block text-oliva-800 font-medium py-1">Nosotros</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block text-oliva-800 font-medium py-1">Contacto</a>
+        </div>
+    </header>
+
+    <section id="inicio" class="relative overflow-hidden pt-12 pb-24 lg:py-32 bg-gradient-to-b from-crema-100 to-crema-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <span class="inline-flex items-center gap-2 bg-oliva-100 text-oliva-800 text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-widest border border-oliva-200">
+                        <i class="fa-solid fa-leaf text-oliva-600"></i> Florería Artesanal y Detallista
+                    </span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-oliva-900 leading-tight">
+                        Donde cada flor cuenta una <span class="italic font-normal text-oliva-700">historia de amor</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-oliva-800/80 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Diseñamos arreglos florales únicos con el equilibrio perfecto entre la frescura natural. Envíos a domicilio directos a la puerta de tus seres queridos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#catalogo" class="w-full sm:w-auto px-8 py-4 bg-oliva-800 text-crema-100 font-medium rounded-full shadow-lg hover:bg-oliva-700 transition-all text-center">
+                            Ver Catálogo
+                        </a>
+                        <a href="#armatoramo" class="w-full sm:w-auto px-8 py-4 bg-crema-50 text-oliva-800 border border-oliva-600/40 font-medium rounded-full hover:bg-crema-200 transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles text-oliva-600"></i> Arma tu Ramo
+                        </a>
+                    </div>
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-crema-300 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <p class="font-serif text-2xl font-bold text-oliva-900">+20</p>
+                            <p class="text-xs text-oliva-700">Variedades de Flores</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl font-bold text-oliva-900">100%</p>
+                            <p class="text-xs text-oliva-700">Frescura Garantizada</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl font-bold text-oliva-900">24/7</p>
+                            <p class="text-xs text-oliva-700">Pedidos Online</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-4 bg-oliva-600/10 rounded-3xl -rotate-2"></div>
+                        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&q=80&w=800" 
+                             alt="Ramo de flores en tonos verde oliva y beige" 
+                             class="relative rounded-2xl shadow-2xl object-cover w-full h-[480px]"
+                             onerror="this.src='https://placehold.co/600x800/EBE6D8/4A5D4E?text=Jardín+Secreto'">
+                        <div class="absolute bottom-6 left-6 bg-crema-100/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-crema-300 max-w-xs">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-oliva-800 text-crema-100 flex items-center justify-center">
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-oliva-900">Envío Express Disponible</p>
+                                    <p class="text-[11px] text-oliva-700">Llega hoy mismo en perfecto estado</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="py-20 bg-crema-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-semibold uppercase tracking-widest text-oliva-600 bg-oliva-50 px-3.5 py-1 rounded-full border border-oliva-200">Colección Exclusiva</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-oliva-900 mt-3">Catálogo de Flores y Arreglos</h2>
+                <p class="text-oliva-800/80 text-sm mt-2">Explora más de 20 opciones con fotografía real cuidadosamente seleccionadas.</p>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-10 bg-crema-100 p-4 rounded-2xl border border-crema-300 shadow-sm">
+                <div class="relative w-full md:w-96">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-oliva-600">
+                        <i class="fa-solid fa-search"></i>
+                    </span>
+                    <input type="text" id="searchInput" oninput="filterCatalog()" placeholder="Busca por nombre o tipo de flor..." 
+                           class="w-full pl-11 pr-4 py-2.5 bg-crema-50 border border-crema-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-oliva-600 text-oliva-900 placeholder-oliva-700/60">
+                </div>
+                <div class="flex flex-wrap gap-2 w-full md:w-auto justify-center">
+                    <button onclick="setCategory('todos')" id="btn-todos" class="category-btn px-4 py-2 rounded-xl text-xs font-medium bg-oliva-800 text-crema-100 transition-all shadow-sm">Todos (20)</button>
+                    <button onclick="setCategory('ramos')" id="btn-ramos" class="category-btn px-4 py-2 rounded-xl text-xs font-medium bg-crema-50 text-oliva-800 hover:bg-crema-200 border border-crema-300 transition-all">Ramos Armados</button>
+                    <button onclick="setCategory('individuales')" id="btn-individuales" class="category-btn px-4 py-2 rounded-xl text-xs font-medium bg-crema-50 text-oliva-800 hover:bg-crema-200 border border-crema-300 transition-all">Flores Individuales</button>
+                    <button onclick="setCategory('exoticas')" id="btn-exoticas" class="category-btn px-4 py-2 rounded-xl text-xs font-medium bg-crema-50 text-oliva-800 hover:bg-crema-200 border border-crema-300 transition-all">Exóticas y Verdes</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Javascript will inject 20 items here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="armatoramo" class="py-20 bg-gradient-to-b from-crema-100 to-oliva-50/50 border-y border-crema-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-semibold uppercase tracking-widest text-oliva-600 bg-oliva-100 px-3.5 py-1 rounded-full border border-oliva-200">Experiencia Interactiva</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-oliva-900 mt-3">Arma tu Ramo desde Cero</h2>
+                <p class="text-oliva-800/80 text-sm mt-2">Personaliza cada detalle: selecciona flores con imágenes reales y observa la representación visual interactiva de tu arreglo en tiempo real.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Builder Controls -->
+                <div class="lg:col-span-7 space-y-8 bg-crema-100 p-6 sm:p-8 rounded-3xl border border-crema-300 shadow-sm">
+                    
+                    <!-- Step 1: Base Flower Selection -->
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-oliva-900 flex items-center gap-2 mb-3">
+                            <span class="w-6 h-6 rounded-full bg-oliva-800 text-crema-100 text-xs flex items-center justify-center font-sans">1</span>
+                            Selecciona tus Flores Principales (Elige varias)
+                        </h3>
+                        <div id="builderFlowers" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <!-- Injected via JS with real photo cards -->
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Wrapper Selection -->
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-oliva-900 flex items-center gap-2 mb-3">
+                            <span class="w-6 h-6 rounded-full bg-oliva-800 text-crema-100 text-xs flex items-center justify-center font-sans">2</span>
+                            Elige el Envoltorio o Papel
+                        </h3>
+                        <div id="builderWrappers" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <!-- Injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Ribbon Selection -->
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-oliva-900 flex items-center gap-2 mb-3">
+                            <span class="w-6 h-6 rounded-full bg-oliva-800 text-crema-100 text-xs flex items-center justify-center font-sans">3</span>
+                            Color del Moño / Listón
+                        </h3>
+                        <div id="builderRibbons" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <!-- Injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Dedication & Card -->
+                    <div class="space-y-4">
+                        <h3 class="font-serif text-lg font-bold text-oliva-900 flex items-center gap-2">
+                            <span class="w-6 h-6 rounded-full bg-oliva-800 text-crema-100 text-xs flex items-center justify-center font-sans">4</span>
+                            Personaliza el Nombre y la Carta
+                        </h3>
+                        <div>
+                            <label class="block text-xs font-medium text-oliva-800 mb-1">¿Para quién es el ramo? (Nombre en la etiqueta)</label>
+                            <input type="text" id="recipientName" placeholder="Ej. Valentina Gómez" 
+                                   class="w-full px-4 py-2.5 bg-crema-50 border border-crema-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-oliva-600 text-oliva-900">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-oliva-800 mb-1">Mensaje de la Carta (Dedicatoria)</label>
+                            <textarea id="cardMessage" rows="3" placeholder="Ej. Que cada flor te recuerde lo especial que eres en mi vida. Con todo mi amor."
+                                      class="w-full px-4 py-2.5 bg-crema-50 border border-crema-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-oliva-600 text-oliva-900"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Live Visual Arrangement Preview -->
+                <div class="lg:col-span-5 sticky top-28">
+                    <div class="bg-crema-100 p-6 sm:p-8 rounded-3xl border border-crema-300 shadow-xl space-y-6">
+                        <div class="text-center pb-2 border-b border-crema-300">
+                            <span class="text-xs uppercase tracking-widest text-oliva-600 font-semibold">Vista Previa Gráfica Real</span>
+                            <h3 class="font-serif text-2xl font-bold text-oliva-900 mt-1">Tu Ramo Personalizado</h3>
+                        </div>
+
+                        <!-- Graphical Flower Bouquet Canvas Container -->
+                        <div id="bouquetVisualCanvas" class="relative bg-gradient-to-b from-[#EAE6DF] to-[#D5CEBC] p-6 rounded-2xl border-2 border-oliva-700/30 text-center overflow-hidden h-[360px] flex flex-col items-center justify-between shadow-inner">
+                            <div class="absolute top-3 right-3 bg-oliva-900/10 text-oliva-900 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Jardín Secreto Studio</div>
+                            
+                            <!-- Bouquet Blossoms Photo Cluster Area -->
+                            <div id="visualBlossomsCluster" class="w-full h-48 flex flex-wrap items-center justify-center content-center gap-2.5 relative z-10 pt-2 overflow-y-auto max-h-[190px] custom-scrollbar">
+                                <span class="text-oliva-800/70 text-xs italic bg-crema-100/90 px-4 py-2 rounded-full shadow-sm">Selecciona flores arriba para componer tu arreglo visual</span>
+                            </div>
+
+                            <!-- Wrapper and Ribbon Base -->
+                            <div class="w-full flex flex-col items-center relative z-20">
+                                <div id="visualRibbon" class="w-16 h-4 bg-amber-700 rounded-full shadow-md flex items-center justify-center text-[10px] text-white font-bold opacity-0 transition-all">Listón</div>
+                                <div id="visualWrapper" class="w-48 h-16 bg-amber-100/90 rounded-b-3xl border-t-2 border-oliva-700/40 shadow-lg flex items-center justify-center text-xs text-oliva-900 font-serif italic px-2 text-center opacity-90 transition-all" style="clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); background-color: #DDD5C2;">
+                                    Sin envoltorio
+                                </div>
+                            </div>
+
+                            <!-- Tag Name Overlay -->
+                            <div class="absolute bottom-2 left-3 bg-crema-100/90 px-3 py-1 rounded-lg border border-crema-300 shadow text-left max-w-[180px]">
+                                <p class="text-[10px] font-bold text-oliva-700 uppercase tracking-wider">Para:</p>
+                                <p id="previewRecipientTag" class="text-xs font-serif font-bold text-oliva-900 truncate">Anónimo</p>
+                            </div>
+                        </div>
+
+                        <!-- Price calculation -->
+                        <div class="space-y-2 pt-2">
+                            <div class="flex justify-between text-sm text-oliva-800">
+                                <span>Flores seleccionadas:</span>
+                                <span id="priceFlowers">$0.00</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-oliva-800">
+                                <span>Envoltorio y extras:</span>
+                                <span id="priceExtras">$0.00</span>
+                            </div>
+                            <div class="flex justify-between text-lg font-bold text-oliva-900 pt-3 border-t border-crema-300">
+                                <span>Total del Ramo:</span>
+                                <span id="priceTotal" class="text-oliva-800">$0.00</span>
+                            </div>
+                        </div>
+
+                        <button onclick="addCustomBouquetToCart()" class="w-full py-4 bg-oliva-800 hover:bg-oliva-700 text-crema-100 font-medium rounded-full shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i> Agregar Ramo Personalizado al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="py-20 bg-crema-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-oliva-600 bg-oliva-50 px-3.5 py-1 rounded-full border border-oliva-200">Nuestra Esencia</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-oliva-900">El arte de regalar emociones vivas</h2>
+                    <p class="text-oliva-800/80 leading-relaxed font-light">
+                        En <strong class="font-medium text-oliva-900">Jardín Secreto</strong> creemos que cada flor guarda un mensaje secreto esperando ser revelado. Trabajamos directamente con productores locales para garantizar frescura y calidad excepcional en cada tallo, cuidando una estética atemporal basada en tonos naturales como el verde oliva y el crema.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="p-3 bg-oliva-100 rounded-xl text-oliva-800">
+                                <i class="fa-solid fa-seedling text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-oliva-900">Cultivo Sostenible</h4>
+                                <p class="text-xs text-oliva-700 mt-1">Flores cortadas de manera ética y ecológica.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="p-3 bg-oliva-100 rounded-xl text-oliva-800">
+                                <i class="fa-solid fa-gift text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-oliva-900">Diseño Artesanal</h4>
+                                <p class="text-xs text-oliva-700 mt-1">Empaques hechos a mano con detalles únicos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&q=80&w=600" alt="Floristería" class="rounded-2xl shadow-md object-cover h-64 w-full">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=600" alt="Arreglos florales" class="rounded-2xl shadow-md object-cover h-64 w-full mt-8">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="bg-oliva-900 text-crema-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-seedling text-2xl text-crema-100"></i>
+                        <span class="font-serif text-2xl font-bold tracking-wider">JARDÍN SECRETO</span>
+                    </div>
+                    <p class="text-xs text-crema-200/80 leading-relaxed">
+                        Florería artesanal especializada en momentos memorables. Combinamos la elegancia del verde oliva y la calidez del crema.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-serif font-bold text-base mb-4 text-crema-100">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-xs text-crema-200/80">
+                        <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#catalogo" class="hover:text-white transition-colors">Catálogo de Arreglos</a></li>
+                        <li><a href="#armatoramo" class="hover:text-white transition-colors">Arma tu Ramo</a></li>
+                        <li><a href="#nosotros" class="hover:text-white transition-colors">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif font-bold text-base mb-4 text-crema-100">Horarios de Atención</h4>
+                    <p class="text-xs text-crema-200/80 mb-2">Lunes a Sábado: 8:00 AM - 7:00 PM</p>
+                    <p class="text-xs text-crema-200/80">Domingos: 9:00 AM - 3:00 PM</p>
+                    <p class="text-xs text-crema-200/80 mt-3 font-semibold">Envíos a domicilio en toda la ciudad.</p>
+                </div>
+                <div>
+                    <h4 class="font-serif font-bold text-base mb-4 text-crema-100">Contacto & Redes</h4>
+                    <div class="flex space-x-3 mb-4">
+                        <a href="#" class="w-9 h-9 rounded-full bg-oliva-800 flex items-center justify-center hover:bg-oliva-700 transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-oliva-800 flex items-center justify-center hover:bg-oliva-700 transition-colors"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-oliva-800 flex items-center justify-center hover:bg-oliva-700 transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                    </div>
+                    <p class="text-xs text-crema-200/80">Teléfono: +52 (55) 1234-5678</p>
+                    <p class="text-xs text-crema-200/80">Correo: hola@jardinsecreto.floreria</p>
+                </div>
+            </div>
+            <div class="border-t border-oliva-800 pt-8 text-center text-xs text-crema-200/60">
+                <p>&copy; 2026 Jardín Secreto Florería. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cartModal" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-oliva-900/50 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-crema-100 shadow-2xl flex flex-col justify-between">
+                
+                <!-- Cart Header -->
+                <div class="p-6 border-b border-crema-300 flex items-center justify-between bg-crema-50">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-shopping-bag text-oliva-800 text-lg"></i>
+                        <h3 class="font-serif text-xl font-bold text-oliva-900">Tu Carrito de Compras</h3>
+                    </div>
+                    <button onclick="toggleCart()" class="p-2 text-oliva-800 hover:text-oliva-600 rounded-full">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Body -->
+                <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
+                    <!-- Injected via JS -->
+                </div>
+
+                <!-- Cart Footer -->
+                <div id="cartFooter" class="p-6 border-t border-crema-300 bg-crema-50 space-y-4">
+                    <div class="flex justify-between items-center text-sm font-medium text-oliva-800">
+                        <span>Subtotal:</span>
+                        <span id="cartSubtotal">$0.00</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm font-medium text-oliva-800">
+                        <span>Envío a domicilio:</span>
+                        <span id="cartShipping">$80.00</span>
+                    </div>
+                    <div class="flex justify-between items-center text-lg font-bold text-oliva-900 pt-2 border-t border-crema-300">
+                        <span>Total a pagar:</span>
+                        <span id="cartTotal">$0.00</span>
+                    </div>
+                    <button onclick="openCheckoutModal()" id="checkoutBtn" class="w-full py-3.5 bg-oliva-800 hover:bg-oliva-700 text-crema-100 font-medium rounded-xl shadow-md transition-all text-center">
+                        Continuar con Envío y Pago
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="min-h-screen px-4 text-center flex items-center justify-center">
+            <div class="fixed inset-0 bg-oliva-900/60 backdrop-blur-sm transition-opacity" onclick="closeCheckoutModal()"></div>
+            
+            <div class="inline-block w-full max-w-2xl p-6 sm:p-8 my-8 text-left align-middle transition-all transform bg-crema-100 shadow-2xl rounded-3xl border border-crema-300 relative z-10">
+                <div class="flex items-center justify-between pb-4 border-b border-crema-300 mb-6">
+                    <h3 class="font-serif text-2xl font-bold text-oliva-900">Datos de Envío y Pago</h3>
+                    <button onclick="closeCheckoutModal()" class="p-2 text-oliva-800 hover:text-oliva-600 rounded-full">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <form id="checkoutForm" onsubmit="processOrder(event)" class="space-y-6">
+                    <!-- Shipping Info -->
+                    <div>
+                        <h4 class="font-serif text-base font-bold text-oliva-900 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-truck text-oliva-600"></i> Información de Entrega a Domicilio
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-oliva-800 mb-1">Nombre Completo</label>
+                                <input type="text" required placeholder="Tu nombre" class="w-full px-3 py-2 bg-crema-50 border border-crema-300 rounded-xl text-sm text-oliva-900 focus:ring-2 focus:ring-oliva-600 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-oliva-800 mb-1">Teléfono de Contacto</label>
+                                <input type="tel" required placeholder="10 dígitos" class="w-full px-3 py-2 bg-crema-50 border border-crema-300 rounded-xl text-sm text-oliva-900 focus:ring-2 focus:ring-oliva-600 focus:outline-none">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="block text-xs font-medium text-oliva-800 mb-1">Dirección Exacta de Entrega</label>
+                                <input type="text" required placeholder="Calle, Número, Colonia, Ciudad" class="w-full px-3 py-2 bg-crema-50 border border-crema-300 rounded-xl text-sm text-oliva-900 focus:ring-2 focus:ring-oliva-600 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-oliva-800 mb-1">Fecha Preferida</label>
+                                <input type="date" required class="w-full px-3 py-2 bg-crema-50 border border-crema-300 rounded-xl text-sm text-oliva-900 focus:ring-2 focus:ring-oliva-600 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-oliva-800 mb-1">Horario Aproximado</label>
+                                <select class="w-full px-3 py-2 bg-crema-50 border border-crema-300 rounded-xl text-sm text-oliva-900 focus:ring-2 focus:ring-oliva-600 focus:outline-none">
+                                    <option>Mañana (9:00 AM - 1:00 PM)</option>
+                                    <option>Tarde (1:00 PM - 5:00 PM)</option>
+                                    <option>Atardecer (5:00 PM - 8:00 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div>
+                        <h4 class="font-serif text-base font-bold text-oliva-900 mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-wallet text-oliva-600"></i> Método de Pago
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <label class="border border-crema-300 p-3.5 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-crema-50 transition-colors">
+                                <input type="radio" name="paymentMethod" checked class="text-oliva-800 focus:ring-oliva-600">
+                                <div>
+                                    <p class="text-xs font-bold text-oliva-900">Tarjeta de Crédito</p>
+                                    <p class="text-[11px] text-oliva-700">Visa / Mastercard</p>
+                                </div>
+                            </label>
+                            <label class="border border-crema-300 p-3.5 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-crema-50 transition-colors">
+                                <input type="radio" name="paymentMethod" class="text-oliva-800 focus:ring-oliva-600">
+                                <div>
+                                    <p class="text-xs font-bold text-oliva-900">Transferencia</p>
+                                    <p class="text-[11px] text-oliva-700">SPEI / CLABE</p>
+                                </div>
+                            </label>
+                            <label class="border border-crema-300 p-3.5 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-crema-50 transition-colors">
+                                <input type="radio" name="paymentMethod" class="text-oliva-800 focus:ring-oliva-600">
+                                <div>
+                                    <p class="text-xs font-bold text-oliva-900">Pago / Efectivo</p>
+                                    <p class="text-[11px] text-oliva-700">Contra entrega u OXXO</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="pt-4 flex gap-4">
+                        <button type="button" onclick="closeCheckoutModal()" class="w-1/2 py-3 bg-crema-200 text-oliva-800 font-medium rounded-xl hover:bg-crema-300 transition-all text-center">
+                            Regresar
+                        </button>
+                        <button type="submit" class="w-1/2 py-3 bg-oliva-800 hover:bg-oliva-700 text-crema-100 font-medium rounded-xl shadow-md transition-all text-center">
+                            Confirmar Pedido
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Order Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="min-h-screen px-4 text-center flex items-center justify-center">
+            <div class="fixed inset-0 bg-oliva-900/60 backdrop-blur-sm"></div>
+            <div class="inline-block w-full max-w-md p-8 my-8 text-center align-middle transition-all transform bg-crema-100 shadow-2xl rounded-3xl border border-crema-300 relative z-10 space-y-4">
+                <div class="w-16 h-16 bg-oliva-800 text-crema-100 rounded-full flex items-center justify-center mx-auto text-2xl shadow-lg">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-oliva-900">¡Pedido Realizado con Éxito!</h3>
+                <p class="text-xs text-oliva-800/80 leading-relaxed">
+                    Gracias por confiar en <strong class="text-oliva-900">Jardín Secreto</strong>. Hemos registrado tu pedido y prepararemos tu arreglo floral con el máximo esmero y frescura. Recibirás detalles de seguimiento por WhatsApp.
+                </p>
+                <button onclick="finishOrder()" class="w-full py-3 bg-oliva-800 hover:bg-oliva-700 text-crema-100 font-medium rounded-xl shadow-md transition-all">
+                    Volver al Inicio
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Database of 20+ Catalog Items with authentic Unsplash floral photography
+        const catalogProducts = [
+            { id: 1, name: "Aurora", category: "ramos", price: 650, desc: "Elegante combinación de rosas crema, eucalipto fresco y follaje oliva.", img: "Aurora.jpg" },
+            { id: 2, name: "Elisa", category: "ramos", price: 720, desc: "Ramo de tulipanes holandeses en tonos crema con envoltorio artesanal.", img: "sinfonia.jpg" },
+            { id: 3, name: "María", category: "ramos", price: 590, desc: "Selección silvestre de margaritas, lavanda y ramas de olivo silvestre.", img: "silvestre.jpg" },
+            { id: 4, name: "Isabella", category: "ramos", price: 850, desc: "Rosas tonos durazno, claveles vintage y papel kraft ecológico.", img: "atardecer.jpg" },
+            { id: 5, name: "Jennifer", category: "ramos", price: 780, desc: "Lirios blancos impecables rodeados de abundante follaje verde oliva.", img: "Jennifer.jpg" },
+            { id: 6, name: "Rubí", category: "ramos", price: 990, desc: "Caja cilindro elegante con 24 rosas premium y dedicatoria dorada.", img: "Rubi.jpg" },
+            { id: 7, name: "Claudia", category: "ramos", price: 550, desc: "Girasoles radiantes acompañados de espigas de trigo y eucalipto.", img: "claudia.jpg" },
+            { id: 8, name: "Brisa", category: "ramos", price: 680, desc: "Peonías suaves y rosas spray con cinta de seda color crema.", img: "brisa.jpg" },
+            { id: 9, name: "Ana", category: "individuales", price: 250, desc: "Rosa preservada en cúpula de cristal con base de madera natural.", img: "Ana.jpg" },
+            { id: 10, name: "Cristal", category: "individuales", price: 890, desc: "Orquídea blanca en maceta de cerámica rústica color beige.", img: "cristal.jpg" },
+            { id: 11, name: "Emilia", category: "individuales", price: 90, desc: "Tulipán fresco de importación con corte perfecto.", img: "emilia.jpg" },
+            { id: 12, name: "Angela", category: "individuales", price: 180, desc: "Cabeza de hortensia grande en tonos pastel y beige.", img: "angela.jpg" },
+            { id: 13, name: "Ania", category: "individuales", price: 60, desc: "Clavel rústico seleccionado por su durabilidad y aroma.", img: "Ania.jpg" },
+            { id: 14, name: "Luna", category: "exoticas", price: 150, desc: "Ramo de ramas de eucalipto aromático con tono verde oliva.", img: "luna.jpg" },
+            { id: 15, name: "Kate", category: "exoticas", price: 340, desc: "Flor protea rey importada, símbolo de diversidad y coraje.", img: "kate.jpg" },
+            { id: 16, name: "Camila", category: "exoticas", price: 210, desc: "Ramillete de lavanda seca con propiedades relajantes y aromáticas.", img: "camila.jpg" },
+            { id: 17, name: "Valeria", category: "exoticas", price: 450, desc: "Minijardín de suculentas variadas en pecera de cristal artesanal.", img: "valeria.jpg" },
+            { id: 18, name: "Sofía", category: "ramos", price: 1200, desc: "Diseño nupcial exclusivo con rosas blancas, olivo y toque beige.", img: "sofia.jpg" },
+            { id: 19, name: "Lucía", category: "ramos", price: 950, desc: "Arreglo en canasta de mimbre con flores variadas de temporada.", img: "lucia.jpg" },
+            { id: 20, name: "Renata", category: "ramos", price: 480, desc: "Astromelias frescas en tonos cálidos con envoltorio oliva.", img: "renata.jpg" }
+        ];
+
+        // Builder Options with photographic avatars for visual selection
+        const builderFlowersData = [
+            { id: 'f1', name: 'Rosa Crema', price: 35, img: 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&q=80&w=200' },
+            { id: 'f2', name: 'Tulipán Holandés', price: 45, img: 'https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&q=80&w=200' },
+            { id: 'f3', name: 'Eucalipto Oliva', price: 25, img: 'https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?auto=format&fit=crop&q=80&w=200' },
+            { id: 'f4', name: 'Girasol Silvestre', price: 40, img: 'https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&q=80&w=200' },
+            { id: 'f5', name: 'Clavel Vintage', price: 20, img: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=200' },
+            { id: 'f6', name: 'Lirio Blanco', price: 50, img: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=200' }
+        ];
+
+        const builderWrappersData = [
+            { id: 'w1', name: 'Papel Kraft Rústico', price: 40, cssColor: '#D4B895', borderCss: '#B08D60' },
+            { id: 'w2', name: 'Envoltorio Verde Oliva', price: 45, cssColor: '#6B7D70', borderCss: '#4A5D4E' },
+            { id: 'w3', name: 'Papel Crema Fino', price: 45, cssColor: '#F5F2EB', borderCss: '#DDD5C2' },
+            { id: 'w4', name: 'Caja Cilindro Premium', price: 120, cssColor: '#38463B', borderCss: '#222B24' }
+        ];
+
+        const builderRibbonsData = [
+            { id: 'r1', name: 'Listón Oliva', price: 15, cssColor: '#4A5D4E' },
+            { id: 'r2', name: 'Listón Beige', price: 15, cssColor: '#EBE6D8' },
+            { id: 'r3', name: 'Cinta Dorada', price: 25, cssColor: '#D4AF37' },
+            { id: 'r4', name: 'Yute Natural', price: 15, cssColor: '#C2B280' }
+        ];
+
+        // State variables
+        let currentCategory = 'todos';
+        let cart = [];
+        let selectedBuilderFlowers = [];
+        let selectedBuilderWrapper = null;
+        let selectedBuilderRibbon = null;
+
+        // Initialize application on load
+        window.onload = function() {
+            renderCatalog(catalogProducts);
+            initBuilder();
+            updateCartUI();
+        };
+
+        // Render Catalog Grid
+        function renderCatalog(products) {
+            const grid = document.getElementById('catalogGrid');
+            grid.innerHTML = '';
+            
+            if (products.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-oliva-800">No se encontraron flores con ese criterio.</div>`;
+                return;
+            }
+
+            products.forEach(p => {
+                grid.innerHTML += `
+                    <div class="bg-crema-100 rounded-2xl border border-crema-300 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                        <div class="relative h-48 overflow-hidden bg-crema-200">
+                            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/EBE6D8/4A5D4E?text=Jardín+Secreto'">
+                            <span class="absolute top-3 left-3 bg-crema-100/90 backdrop-blur-sm text-oliva-900 text-xs font-bold px-2.5 py-1 rounded-full shadow">
+                                $${p.price} MXN
+                            </span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                            <div>
+                                <h3 class="font-serif font-bold text-lg text-oliva-900">${p.name}</h3>
+                                <p class="text-xs text-oliva-800/80 mt-1 font-light line-clamp-2">${p.desc}</p>
+                            </div>
+                            <button onclick="addToCart(${p.id}, 'catalog')" class="w-full py-2.5 bg-oliva-800 hover:bg-oliva-700 text-crema-100 rounded-xl text-xs font-medium transition-all shadow-sm flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-cart-plus"></i> Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Filter Catalog
+        function filterCatalog() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            let filtered = catalogProducts.filter(p => {
+                const matchesCategory = currentCategory === 'todos' || p.category === currentCategory;
+                const matchesSearch = p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query);
+                return matchesCategory && matchesSearch;
+            });
+            renderCatalog(filtered);
+        }
+
+        function setCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.className = "category-btn px-4 py-2 rounded-xl text-xs font-medium bg-crema-50 text-oliva-800 hover:bg-crema-200 border border-crema-300 transition-all";
+            });
+            document.getElementById('btn-' + cat).className = "category-btn px-4 py-2 rounded-xl text-xs font-medium bg-oliva-800 text-crema-100 transition-all shadow-sm";
+            filterCatalog();
+        }
+
+        // Initialize Builder UI with photographic cards
+        function initBuilder() {
+            const flowersContainer = document.getElementById('builderFlowers');
+            builderFlowersData.forEach(f => {
+                flowersContainer.innerHTML += `
+                    <label class="border border-crema-300 p-2.5 rounded-xl flex items-center justify-between cursor-pointer hover:bg-crema-50 transition-colors gap-3">
+                        <div class="flex items-center gap-3">
+                            <input type="checkbox" onchange="toggleBuilderFlower('${f.id}', ${f.price}, '${f.name}', '${f.img}')" class="rounded text-oliva-800 focus:ring-oliva-600">
+                            <img src="${f.img}" alt="${f.name}" class="w-10 h-10 rounded-lg object-cover shadow-sm">
+                            <span class="text-xs font-medium text-oliva-900">${f.name}</span>
+                        </div>
+                        <span class="text-xs text-oliva-700 font-semibold">$${f.price}</span>
+                    </label>
+                `;
+            });
+
+            const wrappersContainer = document.getElementById('builderWrappers');
+            builderWrappersData.forEach(w => {
+                wrappersContainer.innerHTML += `
+                    <label class="border border-crema-300 p-3 rounded-xl flex items-center justify-between cursor-pointer hover:bg-crema-50 transition-colors">
+                        <div class="flex items-center gap-2">
+                            <input type="radio" name="builderWrapper" onchange="selectBuilderWrapper('${w.name}', ${w.price}, '${w.cssColor}', '${w.borderCss}')" class="text-oliva-800 focus:ring-oliva-600">
+                            <span class="text-xs font-medium text-oliva-900">${w.name}</span>
+                        </div>
+                        <span class="text-xs text-oliva-700 font-semibold">$${w.price}</span>
+                    </label>
+                `;
+            });
+
+            const ribbonsContainer = document.getElementById('builderRibbons');
+            builderRibbonsData.forEach(r => {
+                ribbonsContainer.innerHTML += `
+                    <label class="border border-crema-300 p-3 rounded-xl flex items-center justify-between cursor-pointer hover:bg-crema-50 transition-colors">
+                        <div class="flex items-center gap-2">
+                            <input type="radio" name="builderRibbon" onchange="selectBuilderRibbon('${r.name}', ${r.price}, '${r.cssColor}')" class="text-oliva-800 focus:ring-oliva-600">
+                            <span class="text-xs font-medium text-oliva-900">${r.name}</span>
+                        </div>
+                        <span class="text-xs text-oliva-700 font-semibold">$${r.price}</span>
+                    </label>
+                `;
+            });
+        }
+
+        // Builder Logic & Visual Representation with Photos
+        function toggleBuilderFlower(id, price, name, img) {
+            const index = selectedBuilderFlowers.findIndex(f => f.id === id);
+            if (index > -1) {
+                selectedBuilderFlowers.splice(index, 1);
+            } else {
+                selectedBuilderFlowers.push({ id, price, name, img, qty: 3 });
+            }
+            updateBuilderPreview();
+        }
+
+        function selectBuilderWrapper(name, price, cssColor, borderCss) {
+            selectedBuilderWrapper = { name, price, cssColor, borderCss };
+            updateBuilderPreview();
+        }
+
+        function selectBuilderRibbon(name, price, cssColor) {
+            selectedBuilderRibbon = { name, price, cssColor };
+            updateBuilderPreview();
+        }
+
+        function updateBuilderPreview() {
+            const blossomsCluster = document.getElementById('visualBlossomsCluster');
+            const wrapperElem = document.getElementById('visualWrapper');
+            const ribbonElem = document.getElementById('visualRibbon');
+            const recipientTag = document.getElementById('previewRecipientTag');
+            
+            const priceFlowersElem = document.getElementById('priceFlowers');
+            const priceExtrasElem = document.getElementById('priceExtras');
+            const priceTotalElem = document.getElementById('priceTotal');
+
+            const recipientInput = document.getElementById('recipientName').value;
+            recipientTag.innerText = recipientInput ? recipientInput : 'Anónimo';
+
+            // Render interactive real flower photo cluster in preview canvas
+            if (selectedBuilderFlowers.length === 0) {
+                blossomsCluster.innerHTML = `<span class="text-oliva-800/70 text-xs italic bg-crema-100/90 px-4 py-2 rounded-full shadow-sm border border-crema-300">Selecciona flores arriba para componer tu arreglo visual</span>`;
+            } else {
+                blossomsCluster.innerHTML = '';
+                selectedBuilderFlowers.forEach(f => {
+                    const photoCard = document.createElement('div');
+                    photoCard.className = `flex items-center gap-2 bg-crema-100 px-3 py-1.5 rounded-xl shadow-md border border-crema-300 animate-pulse`;
+                    photoCard.innerHTML = `
+                        <img src="${f.img}" alt="${f.name}" class="w-8 h-8 rounded-lg object-cover">
+                        <span class="text-xs font-bold text-oliva-900">${f.name}</span>
+                    `;
+                    blossomsCluster.appendChild(photoCard);
+                });
+            }
+
+            // Update Wrapper styling
+            if (selectedBuilderWrapper) {
+                wrapperElem.style.backgroundColor = selectedBuilderWrapper.cssColor;
+                wrapperElem.style.borderColor = selectedBuilderWrapper.borderCss;
+                wrapperElem.innerText = selectedBuilderWrapper.name;
+                wrapperElem.style.opacity = '1';
+            } else {
+                wrapperElem.style.backgroundColor = '#DDD5C2';
+                wrapperElem.innerText = 'Sin envoltorio';
+            }
+
+            // Update Ribbon styling
+            if (selectedBuilderRibbon) {
+                ribbonElem.style.backgroundColor = selectedBuilderRibbon.cssColor;
+                ribbonElem.innerText = selectedBuilderRibbon.name;
+                ribbonElem.style.opacity = '1';
+            } else {
+                ribbonElem.style.opacity = '0';
+            }
+
+            // Pricing
+            let flowersCost = selectedBuilderFlowers.reduce((acc, f) => acc + (f.price * f.qty), 0);
+            let extrasCost = (selectedBuilderWrapper ? selectedBuilderWrapper.price : 0) + (selectedBuilderRibbon ? selectedBuilderRibbon.price : 0);
+            let totalCost = flowersCost + extrasCost;
+
+            priceFlowersElem.innerText = `$${flowersCost}.00`;
+            priceExtrasElem.innerText = `$${extrasCost}.00`;
+            priceTotalElem.innerText = `$${totalCost}.00`;
+        }
+
+        document.getElementById('recipientName').addEventListener('input', updateBuilderPreview);
+
+        // Cart Management
+        function addToCart(id, type) {
+            let itemToAdd;
+            if (type === 'catalog') {
+                const prod = catalogProducts.find(p => p.id === id);
+                itemToAdd = {
+                    id: 'cat-' + prod.id,
+                    name: prod.name,
+                    price: prod.price,
+                    details: prod.desc,
+                    img: prod.img,
+                    qty: 1
+                };
+            }
+
+            const existing = cart.find(i => i.id === itemToAdd.id);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push(itemToAdd);
+            }
+            updateCartUI();
+            toggleCart();
+        }
+
+        function addCustomBouquetToCart() {
+            if (selectedBuilderFlowers.length === 0) {
+                showNotification("Por favor selecciona al menos una flor para tu ramo.");
+                return;
+            }
+            if (!selectedBuilderWrapper) {
+                showNotification("Por favor selecciona un envoltorio para tu ramo.");
+                return;
+            }
+
+            const recipient = document.getElementById('recipientName').value || 'Especial';
+            const message = document.getElementById('cardMessage').value || 'Sin dedicatoria';
+
+            let flowersCost = selectedBuilderFlowers.reduce((acc, f) => acc + (f.price * f.qty), 0);
+            let extrasCost = selectedBuilderWrapper.price + (selectedBuilderRibbon ? selectedBuilderRibbon.price : 0);
+            let total = flowersCost + extrasCost;
+
+            const customBouquet = {
+                id: 'custom-' + Date.now(),
+                name: `Ramo Personalizado para ${recipient}`,
+                price: total,
+                details: `Flores: ${selectedBuilderFlowers.map(f => f.name).join(', ')} | Envoltorio: ${selectedBuilderWrapper.name} | Carta: "${message}"`,
+                img: selectedBuilderFlowers[0].img,
+                qty: 1
+            };
+
+            cart.push(customBouquet);
+            updateCartUI();
+            toggleCart();
+            showNotification("¡Ramo personalizado agregado al carrito exitosamente!");
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cartBadge');
+            const container = document.getElementById('cartItemsContainer');
+            const subtotalElem = document.getElementById('cartSubtotal');
+            const totalElem = document.getElementById('cartTotal');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+
+            const totalCount = cart.reduce((acc, i) => acc + i.qty, 0);
+            if (totalCount > 0) {
+                badge.innerText = totalCount;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            if (cart.length === 0) {
+                container.innerHTML = `<div class="text-center py-16 text-oliva-800/60"><i class="fa-solid fa-shopping-basket text-4xl mb-2"></i><p class="text-sm">Tu carrito está vacío</p></div>`;
+                subtotalElem.innerText = '$0.00';
+                totalElem.innerText = '$0.00';
+                checkoutBtn.disabled = true;
+                checkoutBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                return;
+            }
+
+            checkoutBtn.disabled = false;
+            checkoutBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+            container.innerHTML = '';
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                subtotal += item.price * item.qty;
+                container.innerHTML += `
+                    <div class="flex items-center justify-between bg-crema-50 p-3.5 rounded-2xl border border-crema-300 gap-3">
+                        <img src="${item.img}" alt="${item.name}" class="w-12 h-12 rounded-xl object-cover">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-xs text-oliva-900">${item.name}</h4>
+                            <p class="text-[11px] text-oliva-700 line-clamp-1">${item.details}</p>
+                            <p class="text-xs font-bold text-oliva-800 mt-1">$${item.price} x ${item.qty}</p>
+                        </div>
+                        <button onclick="removeFromCart('${item.id}')" class="text-amber-800 hover:text-amber-900 p-1 text-sm">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            });
+
+            subtotalElem.innerText = `$${subtotal}.00`;
+            let shipping = 80;
+            totalElem.innerText = `$${subtotal + shipping}.00`;
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        // Modals Toggle
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.classList.toggle('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function openCheckoutModal() {
+            toggleCart();
+            const modal = document.getElementById('checkoutModal');
+            modal.classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            const modal = document.getElementById('checkoutModal');
+            modal.classList.add('hidden');
+        }
+
+        function processOrder(e) {
+            e.preventDefault();
+            closeCheckoutModal();
+            const successModal = document.getElementById('successModal');
+            successModal.classList.remove('hidden');
+            cart = [];
+            updateCartUI();
+        }
+
+        function finishOrder() {
+            const successModal = document.getElementById('successModal');
+            successModal.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showNotification(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-5 right-5 z-50 bg-oliva-900 text-crema-100 px-5 py-3 rounded-2xl shadow-2xl text-xs flex items-center gap-3 border border-oliva-700 animate-bounce';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-green-400"></i> ${msg}`;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
